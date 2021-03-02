@@ -3,9 +3,9 @@ body
     font-family: Cambria;
 }
 
-h1
+p
 {
     color: purple;
     background-color: lightpink;
-    text-align: center;
+    text-align: justify;
 }
