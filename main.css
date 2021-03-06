@@ -1,11 +1,12 @@
 body
 {
     font-family: Cambria;
+    background-color: #BC89DE
 }
 
 p
 {
-    color: purple;
-    background-color: lightpink;
+    color: #451D5F;
+    background-color: #F2EEF4;
     text-align: justify;
 }
