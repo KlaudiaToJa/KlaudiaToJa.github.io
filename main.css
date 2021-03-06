@@ -1,11 +1,12 @@
 body
 {
     font-family: Cambria;
+    background-color: #BC89DE
 }
 
-p
+h1
 {
-    color: purple;
-    background-color: lightpink;
-    text-align: justify;
+    color: #451D5F;
+       
+    text-align: justify;s
 }
