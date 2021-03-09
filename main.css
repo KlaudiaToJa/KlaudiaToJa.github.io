@@ -1,12 +1,96 @@
-body
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
+
+*
 {
-    font-family: Cambria;
-    background-color: #BC89DE
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Shippori Mincho B1', serif;
 }
 
-h1
+body
 {
-    font-size: 40 px;
-    color: #451D5F;
+    background-color: #F2F2F2;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+h1 
+{
+    font-weight: 700;
+    font-size: 33px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+h2
+{
+    font-weight: 500;
+    font-size: 26px;
+}
+
+article
+{
+    display: grid;
+    padding: 50px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-gap: 30px;
+    grid-template-areas: 
+    "zdjecie header"
+    "zdjecie tekst"
+    "dane tekst"
+    "dane tekst"
+    "dane tekst";
+    
+}
+
+.header
+{
+    grid-area: header;
+    padding-bottom: 30px;
+    color: white;
+    padding: 20px;
+    background-image: url('bcg.jpg');
+}
+
+.dane
+{
+    grid-area: dane;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.tekst
+{
+    grid-area: tekst;
+}
+
+.zdjecie
+{
+    grid-area: zdjecie;
+}
+
+.dane .nazwa-elementu
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.el hr
+{
+    border-top: 1px dashed #727272;
+}
+
+.el
+{
+    padding-bottom: 20px;
     text-align: center;
+}
+
+img
+{
+    border-radius: 20%;
+    max-width: 100%;
+    height: auto;
 }
