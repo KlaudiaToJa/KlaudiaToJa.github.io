@@ -1,0 +1,61 @@
+.main
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.up
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo
+{
+    display: flex;
+    justify-content: center;
+}
+
+.search
+{
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "wpisz" "guziczki";
+}
+
+.write
+{
+    grid-area: wpisz;
+}
+
+.buttons
+{
+    grid-area: guziczki;
+    display: grid;
+    grid-template-areas: "szukajka trafiajka";
+}
+
+.grey1
+{
+    grid-area: szukajka;
+}
+
+.grey2
+{
+    grid-area: trafiajka;
+}
+
+.language
+{
+    display: flex;
+    justify-content: center;
+}
+
+.down
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
