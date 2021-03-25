@@ -16,10 +16,40 @@ body
     margin: 0;
 }
 
+.links2
+{
+    display: none;
+}
 
+.aplikacje
+{
+    display:none;
+}
 
+.ilosc_wynikow
+{
+    display: none;
+}
 
+.kreska_pozioma
+{
+    display: none;
+}
 
+.zawartosc
+{
+    display: none;
+}
+
+.iks
+{
+    display: none;
+}
+
+.lupa2
+{
+    display: none;
+}
 
 
 .up
