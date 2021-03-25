@@ -336,6 +336,7 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
     line-height: 1.3;
     color: #1a0dab;
     padding: 4px 0 4px 0;
+    width: fit-content;
 }
 
 .results .zawartosc .streszczenie .opis
@@ -388,4 +389,19 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
     font-size: 15px;
     color: rgba(0,0,0,.54);
     padding-right: 20px;
+}
+
+
+
+
+
+
+.results .zawartosc a:hover
+{
+    text-decoration: underline;
+}
+
+.results .blue
+{
+    cursor: pointer;
 }
