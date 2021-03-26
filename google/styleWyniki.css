@@ -124,9 +124,8 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
 
 .results .search
 {
-    justify-content: center;
-    margin: 0 auto;
-    padding: 20px 60px 0px 0px;
+
+    padding: 20px 60px 0px 60px;
 }
 
 .results .write
@@ -245,7 +244,7 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
     letter-spacing: .25px;
     line-height: 16px;
     margin-right: 8px;
-    min-width: 118px;
+    width: 120px;
     padding: 9px 23px;
     text-align: center;
     vertical-align: middle;
