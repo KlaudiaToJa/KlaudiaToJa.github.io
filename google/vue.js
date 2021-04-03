@@ -10,6 +10,6 @@ var app2 = new Vue({
     el: 'body', 
     data: {
         results: 'results',
-        czyZmienic: (googleSearch == '') ? true : false
+        czyZmienic: true
       }
   });
