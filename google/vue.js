@@ -9,7 +9,6 @@ var app = new Vue({
 var app2 = new Vue({
     el: 'body', 
     data: {
-        results: 'results',
         czyZmienic: true
       }
   });
