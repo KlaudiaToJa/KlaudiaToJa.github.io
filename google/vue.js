@@ -14,5 +14,7 @@ var app2 = new Vue({
       }
   });
 
-document.getElementById("klasa").value = app2.czyZmienic;
-
+if (googleSearch != '')
+{
+    czyZmienic = true
+}
