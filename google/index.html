@@ -5,10 +5,13 @@
         <title>Google</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
+        <script src="vue.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
-    <body class="results">
 
-
+    <!--     :class="{ results: googleSearch != '' }"     -->
+    <body v-bind:class="{ results: czyZmienic }">
+        <input id="klasa" type="text"/>
         <div class="up">
             <div class="up_box">
                 <div class="up_items">
@@ -22,7 +25,6 @@
             </div>
         </div>
 
-
         <div class="this">
             <div class="logo">
                 <img class="google" src="logo" alt="Google" height="92" width="272">
@@ -32,7 +34,7 @@
                 <div class="write">
                     <div class="visual1">
                         <img class="lupa" src="lupa.png">
-                        <input type="search" maxlength="2048" title="Szukaj">
+                        <input v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
                         <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                         <span class="kreska"></span>
                         <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">
@@ -295,4 +297,5 @@
 
 
     </body>
+    
 </html>
