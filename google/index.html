@@ -5,12 +5,13 @@
         <title>Google</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
-        <script src="vue.js" defer></script>
+        <!--script src="vue.js" defer></script-->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
 
-    <!--     :class="{ results: googleSearch != '' }"   tyle ze to nie widzi zmiennej googleSearch :))  -->
-    <body v-bind:class="{ results: czyZmienic }">
+    <!--     :class="{ 'results': googleSearch != '' }"   tyle ze to nie widzi zmiennej googleSearch :))  -->
+    <body v-bind:class="{ results: googleSearch != '' }">
+
         <div class="up">
             <div class="up_box">
                 <div class="up_items">
