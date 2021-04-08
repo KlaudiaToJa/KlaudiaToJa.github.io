@@ -5,15 +5,22 @@
         <title>Google</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
-        <script src="vue.js" defer></script>
+        <script src="pobrane.js" defer></script>
+        <script src="vue3.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
 
     <!--     :class="{ results: googleSearch.length > 0 }"   tyle ze to nie widzi googleSearch...  
-    no generalnie to w ogóle nijak działać nie chce nawet ustawiając bezpośrednio klasa: true :D 
-    <body :class="{ 'results': kotek }">-->
+    u mnie to w ogóle działać nie chce, nawet jak ustawiam bezpośrednio klasa: true... Ani na Safari ani na Operze nie działa...
+    Po próbie nr 101 (no, moze 81) się poddałam :/
 
-    <body :class="[isActive ? activeClass : '']">
+    <body :class="{ results: isActive }"> tez nie dziala gdy isActive ustawiam na true-->
+
+    <body>
+        <!-- 
+        <p id="k">hehe</p>
+        <button onclick="koko()">check</button>
+        -->
 
         <div class="up">
             <div class="up_box">
@@ -38,7 +45,7 @@
                     <div class="visual1">
                         <img class="lupa" src="lupa.png">
                         <input v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
-                        <div>> {{ googleSearch }} </div>
+                        <!--div>> {{ googleSearch }} </div-->
                         <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                         <span class="kreska"></span>
                         <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">
@@ -47,7 +54,7 @@
                 </div>
                 <div class="visual2">
                     <div class="buttons">
-                        <button class="grey1" type="button" onclick="location.href='https://memegenerator.net/img/instances/84288608/dziwne-u-mnie-dziaa.jpg'">Szukaj w Google</button>
+                        <button class="grey1" type="button" onclick="updateValue()">Szukaj w Google</button>
                         <button class="grey2" type="button" onclick="location.href='https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Programmer-while-sleeping.jpg'">Szczęśliwy traf</button>
                     </div>
                 </div>
