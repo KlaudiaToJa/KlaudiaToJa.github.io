@@ -10,8 +10,10 @@
     </head>
 
     <!--     :class="{ results: googleSearch.length > 0 }"   tyle ze to nie widzi googleSearch...  
-    no generalnie to w ogóle nijak działać nie chce :D -->
-    <body :class="{ 'results': kotek }">
+    no generalnie to w ogóle nijak działać nie chce nawet ustawiając bezpośrednio klasa: true :D 
+    <body :class="{ 'results': kotek }">-->
+
+    <body :class="[isActive ? activeClass : '']">
 
         <div class="up">
             <div class="up_box">

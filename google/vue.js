@@ -6,9 +6,10 @@ var app = new Vue({
   });
 
 
-  var app2 = new Vue({
-    el: 'body', 
-    data: {
-      kotek: true
-    }
-  });
+var app2 = new Vue({
+  el: 'body', 
+  data: {
+    isActive: true,
+    activeClass: 'results'
+  }
+});
