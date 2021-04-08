@@ -5,12 +5,13 @@
         <title>Google</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
-        <!--script src="vue.js" defer></script-->
+        <script src="vue.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
 
-    <!--     :class="{ 'results': googleSearch != '' }"   tyle ze to nie widzi zmiennej googleSearch :))  -->
-    <body v-bind:class="{ results: googleSearch != '' }">
+    <!--     :class="{ results: googleSearch.length > 0 }"   tyle ze to nie widzi googleSearch...  
+    no generalnie to w ogóle nijak działać nie chce :D -->
+    <body :class="{ results: kotek }">
 
         <div class="up">
             <div class="up_box">
@@ -35,6 +36,7 @@
                     <div class="visual1">
                         <img class="lupa" src="lupa.png">
                         <input v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
+                        <div>> {{ googleSearch }} </div>
                         <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                         <span class="kreska"></span>
                         <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">

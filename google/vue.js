@@ -5,16 +5,10 @@ var app = new Vue({
     }
   });
 
-var app2 = new Vue({
+
+  var app2 = new Vue({
     el: 'body', 
     data: {
-        czyZmienic: function()
-            {
-              if (googleSearch === ''){
-                return false;
-              }
-              return true;
-            }
-      }
+      kotek: true
+    }
   });
-
