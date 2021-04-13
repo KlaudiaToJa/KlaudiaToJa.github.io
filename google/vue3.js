@@ -17,3 +17,11 @@ function updateValue(e)  // działa przy kliknięciu entera i przycisku Szukaj w
 }
 
 // https://forum.vuejs.org/t/how-do-i-add-remove-classes-to-body/1219/15
+
+
+
+
+
+
+
+// z includes googlesearch, a jak się odwołujemy to do costam.name.length, bo musimy się do środka dostać :)
