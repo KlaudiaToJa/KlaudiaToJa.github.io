@@ -37,7 +37,7 @@
                     <div class="write">
                         <div class="visual1">
                             <img class="lupa" src="lupa.png">
-                            <input class="inp" v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
+                            <input class="inp" v-model="googleSearch" type="search" maxlength="2048" title="Szukaj" v-on:click="ustaw()">
                             <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                             <span class="kreska"></span>
                             <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">
@@ -48,7 +48,7 @@
                             <div class="auto">
 
                             
-                                <div id="autocom" :class="[ googleSearch.length != 0 && filteredCities.length != 0 ? 'autocompleter' : 'bez']">
+                                <div id="autocom" :class="[ googleSearch.length != 0 && filteredCities.length != 0 && kontrol == 1 ? 'autocompleter' : 'bez']">
                                     <ul class="resultsBox">
                                         <li class="pojedynczy" v-for="city in filteredCities" v-on:click="zmiana(city.name)">
                                             <img class="lupaAuto" src="lupa.png">

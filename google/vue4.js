@@ -4,7 +4,8 @@ var app = new Vue({
     {
       googleSearch: '',
       cities: window.cities,
-      isActive: 0
+      isActive: 0,
+      kontrol: 0
     },
     computed: 
     {
@@ -28,11 +29,11 @@ var app = new Vue({
           this.googleSearch = a;
           el2 = document.getElementById("autocom");
           el2.blur();
+          this.kontrol = 0;
         }
       },
       pogrub: function(a)
       {
-        /*a = a.bold();*/
         fraza = this.googleSearch;
         var pom = a.split(fraza);
         for(i = 0; i < pom.length; i++)
@@ -40,6 +41,10 @@ var app = new Vue({
           a = a.replace(pom[i], pom[i].bold());
         }
         return a;
+      },
+      ustaw: function()
+      {
+        this.kontrol = 1;
       }
     }
   });
