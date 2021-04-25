@@ -13,7 +13,7 @@
 
     <body>
 
-        <div id="app" :class="{ results: googleSearch.length > 0 }">
+        <div id="app" :class="[ googleSearch.length != 0 && isActive == 1 ? 'results' : isActive = 0 ]">
 
             <div class="up">
                 <div class="up_box">
@@ -37,12 +37,33 @@
                     <div class="write">
                         <div class="visual1">
                             <img class="lupa" src="lupa.png">
-                            <input v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
-                            <!--div>> {{ googleSearch }} </div-->
+                            <input class="inp" v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
                             <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                             <span class="kreska"></span>
                             <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">
                             <svg class="lupa2" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+                            
+                            
+                            
+                            <div class="auto">
+
+                            
+                                <div id="autocom" :class="[ googleSearch.length != 0 && filteredCities.length != 0 ? 'autocompleter' : 'bez']">
+                                    <ul class="resultsBox">
+                                        <li class="pojedynczy" v-for="city in filteredCities" v-on:click="zmiana(city.name)">
+                                            <img class="lupaAuto" src="lupa.png">
+                                            <div class="pojWyn" v-html="pogrub(city.name)">
+                                            </div>  
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                            
+                            
+                            </div>
+
+
+
                         </div>
                     </div>
                     <div class="visual2">
@@ -102,10 +123,6 @@
             </div>
 
             <div class="zawartosc">
-
-                <div class="gdziekolwiek" v-for="city in filteredCities">
-                    <p>{{ city.name }}</p>
-                </div>
 
                 <div class="wynik">
                     <div class="naglowek">
