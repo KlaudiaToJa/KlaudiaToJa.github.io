@@ -281,6 +281,22 @@ input
     display: none;
 }
 
+.rozowe
+{
+    background-color: pink;
+}
+
+.biale
+{
+    background-color: white;
+}
+
+
+
+
+
+
+
 
 .write:hover,
 .write:focus {
