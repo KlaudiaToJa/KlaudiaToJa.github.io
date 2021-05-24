@@ -7,19 +7,16 @@ Vue.component("v-autocompleter", {
         autocompleterIsActive: false,
         activeResult: 0,
         cities: window.cities.map((cityData) => {
-        cityData.nameLowerCase = cityData.name.toLowerCase()}),
+          cityData.nameLowerCase = cityData.name.toLowerCase();
+          
+          return cityData;
+        }),
         filteredCities: []
       };
     },
-
-
-
-
-
-
     watch: 
     {
-      googleSearch() {
+      value() {
         if (this.autocompleterIsActive) {
             return;
         }
@@ -28,11 +25,13 @@ Vue.component("v-autocompleter", {
             return;
         }
         let returnedCities = [];
-        let searchLowerCase = this.googleSearch.toLowerCase();
+        let searchLowerCase = this.value.toLowerCase();
 
-        this.cities.forEach((cityData) => {
-            if (returnedCities.length === 10 || !cityData.nameLowerCase.includes(searchLowerCase)) {
-                return;
+        this.cities.some((cityData) => {
+            if (returnedCities.length === 10) {
+              return true;
+            } else if (!cityData.nameLowerCase.includes(searchLowerCase)) {
+              return false;
             }
             returnedCities.push({
                 name: cityData.name,
@@ -45,22 +44,17 @@ Vue.component("v-autocompleter", {
         this.filteredCities = returnedCities;
       }
     },
-
-
-
-
-
     methods:
     {
-
       zmiana: function(a)
       {
         if(this.isActive == 0)
         {
           this.isActive = 1;
-          this.googleSearch = a;
+          this.value = a;
           el2 = document.getElementById("autocom");
           this.kontrol = 0;
+          this.$emit('enter');
         }
       },
 
@@ -83,43 +77,33 @@ Vue.component("v-autocompleter", {
         
         this.autocompleterIsActive = true;
         this.activeResult = index;
-        this.googleSearch = this.filteredCities[index].name;
+        this.value = this.filteredCities[index].name;
       }
     },
-
-
-
-
     props: {
       value: {
         type: String,
         default: ""
       }
     },
-
-
-
-
     template: `
     <div>
-        <a>googleSearch: {{ googleSearch }}</a>
+        <a>value: {{ value }}</a>
         <a>kontrol: {{ kontrol }}</a>
         <a>miasta: {{ filteredCities.length }}</a>
         <a>auto: {{ autocompleterIsActive }}</a>
         
         <input 
-            class="inp" 
-            v-model="googleSearch" 
+            class="inp"
             type="search" 
             maxlength="2048" 
             title="Szukaj" 
             v-on:click="ustaw()" 
             @keyup.up="strzalka(activeResult - 1)" 
             @keyup.down="strzalka(activeResult + 1)" 
-            @keyup.enter="zmiana(googleSearch)"
+            @keyup.enter="zmiana(value)"
             :value="value"
-            @input="$emit('input', $event.target.value)"
-            @keyup.enter="$emit('enter')">
+            @input="$emit('input', $event.target.value)">
 
             <div class="auto">         
                 <div id="autocom" :class="[ value.length != 0 && filteredCities.length != 0 && kontrol == 1 ? 'autocompleter' : 'bez']">
@@ -136,16 +120,4 @@ Vue.component("v-autocompleter", {
 
     </div>    
     `
-  });
-
-
-
-
-  
-  var app = new Vue({
-    el: "#app",
-    data: {
-      enterClicked: 0,
-      googleSearch: ""
-    }
   });
