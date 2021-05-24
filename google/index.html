@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
         <link rel="stylesheet" href="autocompleter.css">
-        <script src="cities.js"></script>
-        <script src="vue4.js" defer></script>
-        <script src="autocompleter.js" defer></script>
+        <script src="https://unpkg.com/vue"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="vue4.js" defer></script>
+        <script src="cities.js"></script>
+        <script src="autocompleter.js"></script>
     </head>
 
     <body>
@@ -56,6 +57,8 @@
                                 <v-autocompleter
                                   :value="googleSearch"
                                   @input="googleSearch = $event"
+                                  @enter="enter"
+                                
                                 ></v-autocompleter>
                               </div>
 
@@ -323,5 +326,22 @@
         </div>
 
     </body>
+
+
+    <!-- POTRZEBNE DO AUTOCOMPLETERA -->
+    <script type="text/javascript">
+        var app = new Vue({
+          el: "#app",
+          data: {
+            enterClicked: 0,
+            googleSearch: ""
+          },
+          methods: {
+            enter() {
+              console.log("ENTER!");
+            }
+          }
+        });
+      </script>
     
 </html>
