@@ -5,17 +5,17 @@
         <title>Google</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleWyniki.css">
-        <link rel="stylesheet" href="autocompleter.css">
-        <script src="https://unpkg.com/vue"></script>
+        <script src="vue4.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script src="vue4.js" ></script>
-        <script src="cities.js"></script>
-        <script src="autocompleter.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
+
+    <!-- http://localhost:8080/KlaudiaToJa.github.io/google/index.php -->
 
     <body>
 
-        <div id="app" :class="[ googleSearch.length != 0 && klik == 1 ? 'results' : klik = 0 ]">
+        <div id="app" :class="[ googleSearch.length != 0 && isActive == 1 ? 'results' : isActive = 0 ]">
+
             <div class="up">
                 <div class="up_box">
                     <div class="up_items">
@@ -37,18 +37,43 @@
                 <div class="search">
                     <div class="write">
                         <div class="visual1">
-                            <img class="lupa" src="lupa.png">    
-
-                            <v-autocompleter
-                                  :value="googleSearch"
-                                  @input="googleSearch = $event"
-                                  @enter="enter"
-                                ></v-autocompleter>
-
+                            <img class="lupa" src="lupa.png">
+                            <input class="inp" 
+                                v-model="googleSearch" 
+                                type="search" 
+                                maxlength="2048" 
+                                title="Szukaj" 
+                                v-on:click="ustaw()"
+                                @keyup.up="strzalka(activeResult - 1)" 
+                                @keyup.down="strzalka(activeResult + 1)" 
+                                @keyup.enter="zmiana(googleSearch)"
+                                @input="findResultsDebounced">
                             <svg class="iks" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
                             <span class="kreska"></span>
                             <img class="klaw" src="klawiatura.png" title="Narzędzia do wprowadzania tekstu">
                             <svg class="lupa2" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+                            
+                            
+                            
+                            <div class="auto">
+
+                            
+                                <div id="autocom" :class="[ googleSearch.length != 0 && filteredCities.length != 0 && kontrol == 1 ? 'autocompleter' : 'bez']">
+                                    <ul class="resultsBox">
+                                        <li class="pojedynczy" v-for="(city, index) in filteredCities" :key="city.name" @click="zmiana(city.name)" :class="{active : autocompleterIsActive && activeResult === index}">
+                                            <img class="lupaAuto" src="lupa.png">
+                                            <div class="pojWyn" v-html="pogrub(city.name)">
+                                            </div>  
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                            
+                            
+                            </div>
+
+
+
                         </div>
                     </div>
                     <div class="visual2">
@@ -307,25 +332,5 @@
         </div>
 
     </body>
-
-
-    <!-- POTRZEBNE DO AUTOCOMPLETERA -->
-    <script type="text/javascript">
-        var app = new Vue({
-          el: "#app",
-          data: {
-            googleSearch: "",
-            cities: window.cities,
-            klik: 0
-          },
-          methods: {
-            enter(akt, szuk) {
-              console.log("ENTER!");
-              this.klik = akt;
-              this.googleSearch = szuk;
-            }
-          }
-        });
-      </script>
     
 </html>

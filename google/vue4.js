@@ -5,41 +5,9 @@ var app = new Vue({
       googleSearch: '',
       isActive: 0,
       kontrol: 0,
-      autocompleterIsActive: false,
       activeResult: 0,
       filteredCities: [],
-      cities: window.cities.map((cityData) => {
-        cityData.nameLowerCase = cityData.name.toLowerCase();
-        return cityData;
-      })
-    },
-    watch: 
-    {
-      googleSearch() {
-        if (this.autocompleterIsActive) {
-            return;
-        }
-        if (this.googleSearch.length === 0) {
-            filteredCities = [];
-            return;
-        }
-        let returnedCities = [];
-        let searchLowerCase = this.googleSearch.toLowerCase();
-
-        this.cities.forEach((cityData) => {
-            if (returnedCities.length === 10 || !cityData.nameLowerCase.includes(searchLowerCase)) {
-                return;
-            }
-            returnedCities.push({
-                name: cityData.name,
-                nameHtml: cityData.nameLowerCase.replace(searchLowerCase, (match) => {
-                    return '<span class="bold">' + match + '</span>';
-                })
-            })
-        });
-        
-        this.filteredCities = returnedCities;
-      }
+      autocompleterIsActive: false
     },
     methods:
     {
@@ -53,6 +21,16 @@ var app = new Vue({
           el2.blur();
           this.kontrol = 0;
         }
+      },
+      pogrub: function(a)
+      {
+        fraza = this.googleSearch;
+        var pom = a.split(fraza);
+        for(i = 0; i < pom.length; i++)
+        {
+          a = a.replace(pom[i], pom[i].bold());
+        }
+        return a;
       },
       ustaw: function()
       {
@@ -72,8 +50,14 @@ var app = new Vue({
         
         this.autocompleterIsActive = true;
         this.activeResult = index;
-        this.googleSearch = this.filteredCities[index].name;
-      }
+        this.value = this.filteredCities[index].name;
+      },
+      findResultsDebounced : Cowboy.debounce(100, function findResultsDebounced() {
+        fetch('http://localhost:8080/KlaudiaToJa.github.io/google/searchGoogle.php/?name=' + this.googleSearch)
+            .then(response => response.json())
+            .then(data => {
+                this.filteredCities = data;
+            });
+      })
     }
-  
   });

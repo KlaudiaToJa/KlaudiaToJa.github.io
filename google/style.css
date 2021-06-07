@@ -198,7 +198,7 @@ img.klaw
     padding-right: 10px;
 }
 
-/* input
+input
 {
     background-color: transparent;
     margin: 0;
@@ -216,13 +216,13 @@ img.klaw
     -webkit-appearance: textfield;
     font-weight: 400;
     text-align: start;
-} */
+}
 
 
 
 
 
-/* .auto
+.auto
 {
     position: absolute;
     margin-top: 35px;
@@ -281,31 +281,16 @@ img.klaw
     display: none;
 }
 
-#autocom .resultsBox .active
-{
-    background-color: #5f6368;
-}
-
-.bold {
-    font-weight: bold;
-} */
-
-
-
-
-
-
-
 
 .write:hover,
 .write:focus {
     box-shadow: 0 0 0.3em 0.1em #d9d9d9;
 }
 
-/* .pojedynczy:hover, .pojedynczy:focus
+.pojedynczy:hover, .pojedynczy:focus
 {
     background-color: #ededed;
-} */
+}
 
 
 

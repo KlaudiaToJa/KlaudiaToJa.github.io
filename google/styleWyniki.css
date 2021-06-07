@@ -202,7 +202,7 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
     display: inline-block;
     fill: #5f6368;
 }
-/* 
+
 .results input
 {
     background-color: transparent;
@@ -263,11 +263,6 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
     padding: 6px 0 6px 11px;
 }
 
-#autocom .resultsBox .active
-{
-    background-color: #5f6368;
-}
-
 .results .pojWyn
 {
     display: inline-block;
@@ -285,11 +280,6 @@ RESETOWANIE CAŁEGO POPRZEDNIEGO CSS:
 {
     display: none;
 }
-
-.results .bold {
-    font-weight: bold;
-} */
-
 
 .results .write:hover,
 .results .write:focus {
